@@ -117,6 +117,11 @@ def ncread_dim_time(infile, date_start, date_end):
     # nctime -> datetime
     dttime = nctime_to_datetime(nctime, tidx_start=tidx_start, tidx_end=tidx_end+1)
 
+    dttime = np.array(
+        [datetime.datetime(t.year, t.month, t.day, t.hour, t.minute, t.second, t.microsecond) 
+            for t in dttime]
+    )
+
     # print some message
     # print_dttime_range(dttime)
 
